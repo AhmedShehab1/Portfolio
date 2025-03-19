@@ -1,6 +1,7 @@
 import React from 'react';
 import Typewriter from 'typewriter-effect';
 import { Github, Linkedin, Mail, Code2 } from 'lucide-react';
+import heroImage from '../assets/hero.jpg';
 
 const Hero = () => {
   return (
@@ -15,7 +16,7 @@ const Hero = () => {
         <div className="mb-8">
           <div className="w-32 h-32 mx-auto mb-6 rounded-full border-4 border-blue-500 overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+              src={heroImage}
               alt="Ahmed Shehab"
               className="w-full h-full object-cover"
             />
