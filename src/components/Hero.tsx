@@ -1,7 +1,7 @@
 import React from 'react';
 import Typewriter from 'typewriter-effect';
 import { Github, Linkedin, Mail, Code2 } from 'lucide-react';
-import heroImage from '../assets/hero.jpg';
+import heroImage from '../assets/hero-img.jpg';
 
 const Hero = () => {
   return (
