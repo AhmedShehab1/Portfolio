@@ -63,7 +63,7 @@ const Contact = () => {
           </div>
 
           <div className="bg-white/10 backdrop-blur-lg rounded-xl p-8">
-            <form className="space-y-6" netlify>
+            <form className="space-y-6" name="contact" method="POST" netlify>
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
                   Name
