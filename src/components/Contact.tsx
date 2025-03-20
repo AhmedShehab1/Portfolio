@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Mail, MessageSquare, Send, Phone, MapPin } from 'lucide-react';
 
 const Contact = () => {
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsPopupVisible(true);
+  };
+
+  const closePopup = () => {
+    setIsPopupVisible(false);
+  };
+
   return (
     <section id="contact" className="py-20 bg-gray-900 text-white">
       <div className="max-w-4xl mx-auto px-4">
@@ -63,7 +74,8 @@ const Contact = () => {
           </div>
 
           <div className="bg-white/10 backdrop-blur-lg rounded-xl p-8">
-            <form className="space-y-6" name="contact" method="POST" netlify>
+            <form className="space-y-6" name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit}>
+              <input type="hidden" name="form-name" value="contact" />
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
                   Name
@@ -71,6 +83,7 @@ const Contact = () => {
                 <input
                   type="text"
                   id="name"
+                  name="name"
                   className="w-full px-4 py-2 bg-white/5 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
                   placeholder="Your name"
                 />
@@ -83,6 +96,7 @@ const Contact = () => {
                 <input
                   type="email"
                   id="email"
+                  name="email"
                   className="w-full px-4 py-2 bg-white/5 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
                   placeholder="your@email.com"
                 />
@@ -94,6 +108,7 @@ const Contact = () => {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   rows={4}
                   className="w-full px-4 py-2 bg-white/5 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
                   placeholder="What's on your mind?"
@@ -111,6 +126,21 @@ const Contact = () => {
           </div>
         </div>
       </div>
+
+      {isPopupVisible && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+          <div className="bg-white p-8 rounded-lg shadow-lg text-gray-900">
+            <h3 className="text-2xl font-semibold mb-4">Thank you!</h3>
+            <p className="mb-4">Your message has been sent successfully.</p>
+            <button
+              onClick={closePopup}
+              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
