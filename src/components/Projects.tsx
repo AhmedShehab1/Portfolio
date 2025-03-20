@@ -5,7 +5,7 @@ const projects = [
   {
     title: 'Raseel Clinical System',
     description: 'A comprehensive clinical system for managing patient-doctor interactions, featuring authentication, appointment booking, and medical record management.',
-    tech: ['Django', 'Elasticsearch', 'Bootstrap', 'MySQL'],
+    tech: ['Flask', 'Elasticsearch', 'Bootstrap', 'MySQL'],
     image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
     github: 'https://github.com/AhmedShehab1/Raseel_Clinical_System',
     highlights: [
@@ -24,7 +24,7 @@ const projects = [
   {
     title: 'File Manager API',
     description: 'A backend-focused application implementing authentication, file management, and image processing.',
-    tech: ['Node.js', 'MongoDB', 'Redis'],
+    tech: ['Node.js', 'MongoDB', 'Redis', 'Docker'],
     image: 'https://images.unsplash.com/photo-1544396821-4dd40b938ad3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
     github: 'https://github.com/AhmedShehab1/alx-files_manager'
   },
