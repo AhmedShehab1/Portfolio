@@ -46,7 +46,14 @@ const projects = [
       'Djoser-based authentication',
       'Docker containerization'
     ]
-  }
+  },
+  {
+    title: 'Statistics Simulator',
+    description: 'An interactive React web app for simulating and visualizing statistical distributions and concepts.',
+    tech: ['React', 'Chart.js', 'Tailwind CSS', 'Netlify'],
+    image: 'https://images.unsplash.com/photo-1635465611984-2a112093ad3e?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    demo: 'https://statistics-simulator.netlify.app/',
+  },
 ];
 
 const Projects = () => {
@@ -95,15 +102,17 @@ const Projects = () => {
                   ))}
                 </div>
                 <div className="flex gap-4">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
-                  >
-                    <Github className="w-5 h-5" />
-                    Code
-                  </a>
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                    >
+                      <Github className="w-5 h-5" />
+                      Code
+                    </a>
+                  )}
                   {project.demo && (
                     <a
                       href={project.demo}
