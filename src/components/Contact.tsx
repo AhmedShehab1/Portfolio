@@ -140,12 +140,12 @@ const Contact: React.FC = () => {
             <h3 className="text-2xl font-semibold mb-4">Contact Information</h3>
             <div className="space-y-4">
               <a 
-                href="mailto:ashehab.biomedeng@gmail.com"
+                href="mailto:info@ahmedshehab.tech"
                 className="flex items-center gap-3 text-gray-300 hover:text-blue-400 transition-colors"
-                aria-label="Email me at ashehab.biomedeng@gmail.com"
+                aria-label="Email me at info@ahmedshehab.tech"
               >
                 <Mail className="w-5 h-5" aria-hidden="true" />
-                ashehab.biomedeng@gmail.com
+                info@ahmedshehab.tech
               </a>
               <a 
                 href="tel:+201274316669"
