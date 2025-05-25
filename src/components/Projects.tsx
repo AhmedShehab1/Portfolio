@@ -8,6 +8,7 @@ const projects = [
     tech: ['Flask', 'Elasticsearch', 'Bootstrap', 'MySQL'],
     image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
     github: 'https://github.com/AhmedShehab1/Raseel_Clinical_System',
+    demo: 'https://raseelcenter.sa/',
     highlights: [
       'Role-based access control',
       'Elasticsearch-powered search',
