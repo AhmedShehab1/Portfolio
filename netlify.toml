@@ -11,11 +11,6 @@
   to = "/index.html"
   status = 200
 
-# Enable Netlify's built-in prerendering for search-engine bots
-# This serves a pre-rendered static snapshot to Googlebot, Bingbot, etc.
-[[plugins]]
-  package = "@netlify/plugin-prerender"
-
 # Security & caching headers
 [[headers]]
   for = "/*"
