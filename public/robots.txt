@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Sitemap: https://portfolio.shehabtech.me/sitemap.xml
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /

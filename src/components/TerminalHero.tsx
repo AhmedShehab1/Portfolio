@@ -96,7 +96,16 @@ const TerminalHero: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 py-20 grid-bg">
+    <section
+      className="relative min-h-screen flex items-center justify-center px-4 py-20 grid-bg"
+      aria-label="Introduction"
+    >
+      {/* SEO — visible to crawlers, visually hidden */}
+      <h1 className="sr-only">
+        Ahmed Shehab — Backend &amp; Systems Engineer | Software Engineer specializing in
+        distributed systems, Django, Flask, Spring Boot, Node.js, Docker
+      </h1>
+
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-void via-transparent to-void pointer-events-none" />
 

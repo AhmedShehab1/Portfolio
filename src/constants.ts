@@ -5,7 +5,7 @@ export const PROFILE = {
   name: "Ahmed Shehab",
   title: "Software Engineer — Backend & Systems Specialist",
   email: "ashehab.biomedeng@gmail.com",
-  phone: "(+20) 1274316669",
+  phone: "(+20) 1274316669 / (+966) 559783869",
   links: {
     linkedin: "https://linkedin.com/in/ahmed-shehab-engineering",
     github: "https://github.com/AhmedShehab1",
