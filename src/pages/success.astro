@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE } from "../data/profile";
+---
+
+<Layout title={`Message Sent — ${SITE.name}`} description="Thank you for reaching out.">
+  <Header />
+  <main class="max-w-3xl mx-auto px-6 pt-24 pb-16 text-center">
+    <p class="font-mono text-xs uppercase tracking-wider text-signal-dim dark:text-signal">
+      status 200 OK
+    </p>
+    <h1 class="mt-3 font-display font-bold text-3xl sm:text-4xl">Message Delivered.</h1>
+    <p class="mt-4 text-base text-text-light-dim dark:text-text-dark-dim max-w-md mx-auto">
+      Thank you for getting in touch. I have received your note and will get back to you shortly.
+    </p>
+    <a href="/" class="mt-8 inline-block font-mono text-sm px-4 py-2 rounded-md border border-line-light dark:border-line-dark hover:border-signal text-signal-dim dark:text-signal transition-colors">
+      ← Back to Portfolio
+    </a>
+  </main>
+  <Footer />
+</Layout>

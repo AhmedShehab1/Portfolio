@@ -9,7 +9,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://portfolio.shehabtech.me',
+  site: 'https://transcendent-bonbon-b9241d.netlify.app',
 
   vite: {
     plugins: [tailwindcss()]

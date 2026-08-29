@@ -8,6 +8,7 @@ import ArticleCard from "../components/ArticleCard.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import SkillsSection from "../components/SkillsSection.astro";
 import CertificationsSection from "../components/CertificationsSection.astro";
+import ContactForm from "../components/ContactForm.astro";
 import { getCollection } from "astro:content";
 import { SITE, EXPERIENCE, EDUCATION, PROJECTS } from "../data/profile";
 
@@ -35,13 +36,13 @@ const posts = (await getCollection("blog", ({ data }) => !data.draft))
           </p>
 
           <!-- Quick Action Buttons -->
-          <div class="mt-5 flex flex-wrap items-center gap-3">
+          <div class="mt-5 flex flex-wrap items-center gap-2.5">
             <a
-              href={`mailto:${SITE.email}`}
+              href="#contact"
               class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md font-mono text-xs font-medium bg-signal text-ink hover:opacity-90 transition-opacity"
             >
               <span>✉</span>
-              <span>Email</span>
+              <span>Contact</span>
             </a>
             {SITE.social.resume && (
               <a
@@ -71,6 +72,16 @@ const posts = (await getCollection("blog", ({ data }) => !data.draft))
                 class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md font-mono text-xs border border-line-light dark:border-line-dark hover:border-signal-dim dark:hover:border-signal text-text-light-dim dark:text-text-dark-dim hover:text-text-light dark:hover:text-text-dark transition-colors"
               >
                 <span>LinkedIn ↗</span>
+              </a>
+            )}
+            {SITE.social.leetcode && (
+              <a
+                href={SITE.social.leetcode}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md font-mono text-xs border border-line-light dark:border-line-dark hover:border-signal-dim dark:hover:border-signal text-text-light-dim dark:text-text-dark-dim hover:text-text-light dark:hover:text-text-dark transition-colors"
+              >
+                <span>LeetCode ↗</span>
               </a>
             )}
           </div>
@@ -180,6 +191,14 @@ const posts = (await getCollection("blog", ({ data }) => !data.draft))
           )
         }
       </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="py-10 scroll-mt-8 border-t border-line-light dark:border-line-dark">
+      <h2 class="font-mono text-xs uppercase tracking-wider text-text-light-dim dark:text-text-dark-dim mb-6">
+        // get in touch
+      </h2>
+      <ContactForm />
     </section>
   </main>
 

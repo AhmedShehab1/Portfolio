@@ -6,9 +6,7 @@ export const SITE = {
   tagline:
     "Engineering high-throughput distributed backends, zero-trust security architectures, and resilient infrastructure.",
   location: "Cairo, Egypt",
-  email: "ashehab.biomedeng@gmail.com",
-  phone: "(+20) 1274316669",
-  avatar: "/avatar.svg",
+  avatar: "/avatar.png",
   social: {
     github: "https://github.com/AhmedShehab1",
     linkedin: "https://www.linkedin.com/in/ahmed-shehab-engineering/",

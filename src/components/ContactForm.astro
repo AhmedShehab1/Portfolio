@@ -1,0 +1,82 @@
+---
+---
+
+<div class="p-6 rounded-lg border border-line-light dark:border-line-dark bg-paper dark:bg-ink">
+  <p class="font-mono text-xs text-text-light-dim dark:text-text-dark-dim mb-4">
+    Have a project, role, or architecture discussion in mind? Send a direct message below.
+  </p>
+
+  <form
+    name="contact"
+    method="POST"
+    action="/success"
+    data-netlify="true"
+    netlify-honeypot="bot-field"
+    class="space-y-4"
+  >
+    <input type="hidden" name="form-name" value="contact" />
+    
+    <p class="hidden">
+      <label>
+        Don't fill this out if you're human: <input name="bot-field" />
+      </label>
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label for="name" class="block font-mono text-xs uppercase tracking-wider text-text-light-dim dark:text-text-dark-dim mb-1.5">
+          Name
+        </label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          placeholder="Ada Lovelace"
+          class="w-full px-3 py-2 rounded-md font-mono text-sm border border-line-light dark:border-line-dark bg-paper-raised dark:bg-ink-raised text-text-light dark:text-text-dark placeholder:text-text-light-dim/50 dark:placeholder:text-text-dark-dim/50 focus:outline-none focus:border-signal"
+        />
+      </div>
+
+      <div>
+        <label for="email" class="block font-mono text-xs uppercase tracking-wider text-text-light-dim dark:text-text-dark-dim mb-1.5">
+          Email
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          placeholder="ada@example.com"
+          class="w-full px-3 py-2 rounded-md font-mono text-sm border border-line-light dark:border-line-dark bg-paper-raised dark:bg-ink-raised text-text-light dark:text-text-dark placeholder:text-text-light-dim/50 dark:placeholder:text-text-dark-dim/50 focus:outline-none focus:border-signal"
+        />
+      </div>
+    </div>
+
+    <div>
+      <label for="message" class="block font-mono text-xs uppercase tracking-wider text-text-light-dim dark:text-text-dark-dim mb-1.5">
+        Message
+      </label>
+      <textarea
+        id="message"
+        name="message"
+        rows="4"
+        required
+        placeholder="Tell me about your project or opportunity..."
+        class="w-full px-3 py-2 rounded-md font-mono text-sm border border-line-light dark:border-line-dark bg-paper-raised dark:bg-ink-raised text-text-light dark:text-text-dark placeholder:text-text-light-dim/50 dark:placeholder:text-text-dark-dim/50 focus:outline-none focus:border-signal resize-y"
+      ></textarea>
+    </div>
+
+    <div class="flex items-center justify-between pt-2">
+      <span class="font-mono text-[0.7rem] text-text-light-dim dark:text-text-dark-dim">
+        ⚡ Protected from web scrapers via Netlify Forms
+      </span>
+      <button
+        type="submit"
+        class="inline-flex items-center gap-2 px-4 py-2 rounded-md font-mono text-xs font-medium bg-signal text-ink hover:opacity-90 transition-opacity cursor-pointer shadow-sm"
+      >
+        <span>Send Message</span>
+        <span>→</span>
+      </button>
+    </div>
+  </form>
+</div>
