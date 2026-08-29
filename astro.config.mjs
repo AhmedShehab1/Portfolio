@@ -10,7 +10,7 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://ahmedshehab1.github.io',
-  base: process.env.BASE_PATH || '/',
+  base: '/Portfolio',
 
   vite: {
     plugins: [tailwindcss()]

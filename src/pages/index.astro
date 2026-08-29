@@ -15,6 +15,9 @@ import { SITE, EXPERIENCE, EDUCATION, PROJECTS } from "../data/profile";
 const posts = (await getCollection("blog", ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const avatarSrc = SITE.avatar.startsWith('/') ? `${base}${SITE.avatar.slice(1)}` : SITE.avatar;
 ---
 
 <Layout title={`${SITE.name} — ${SITE.role}`} description={SITE.tagline}>
@@ -100,7 +103,7 @@ const posts = (await getCollection("blog", ({ data }) => !data.draft))
               <span class="h-1.5 w-1.5 rounded-full bg-signal"></span>
             </div>
             <img
-              src={SITE.avatar}
+              src={avatarSrc}
               alt={SITE.name}
               width="144"
               height="144"
@@ -166,7 +169,7 @@ const posts = (await getCollection("blog", ({ data }) => !data.draft))
           // technical writing & notes
         </h2>
         <a
-          href="/blog"
+          href={`${base}blog`}
           class="font-mono text-xs text-signal-dim dark:text-signal hover:underline"
         >
           view all ({posts.length}) →

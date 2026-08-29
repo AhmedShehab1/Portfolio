@@ -1,6 +1,7 @@
 ---
 import { SITE } from "../data/profile";
 const year = new Date().getFullYear();
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 ---
 
 <footer class="max-w-3xl mx-auto px-6 py-12 mt-16 border-t border-line-light dark:border-line-dark">
@@ -27,7 +28,7 @@ const year = new Date().getFullYear();
           resume
         </a>
       )}
-      <a href="/rss.xml" class="hover:text-signal-dim dark:hover:text-signal transition-colors">
+      <a href={`${base}rss.xml`} class="hover:text-signal-dim dark:hover:text-signal transition-colors">
         rss
       </a>
     </div>
