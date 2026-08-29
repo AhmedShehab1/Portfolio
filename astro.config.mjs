@@ -9,7 +9,8 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://transcendent-bonbon-b9241d.netlify.app',
+  site: 'https://ahmedshehab1.github.io',
+  base: process.env.BASE_PATH || '/',
 
   vite: {
     plugins: [tailwindcss()]
