@@ -1,0 +1,187 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import StatusStrip from "../components/StatusStrip.astro";
+import LogEntry from "../components/LogEntry.astro";
+import ArticleCard from "../components/ArticleCard.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import SkillsSection from "../components/SkillsSection.astro";
+import CertificationsSection from "../components/CertificationsSection.astro";
+import { getCollection } from "astro:content";
+import { SITE, EXPERIENCE, EDUCATION, PROJECTS } from "../data/profile";
+
+const posts = (await getCollection("blog", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+---
+
+<Layout title={`${SITE.name} — ${SITE.role}`} description={SITE.tagline}>
+  <Header />
+
+  <main class="max-w-3xl mx-auto px-6">
+    <!-- Hero -->
+    <section class="pt-14 sm:pt-20 pb-10">
+      <div class="flex flex-col sm:flex-row sm:items-start gap-8">
+        <div class="flex-1 order-2 sm:order-1">
+          <p class="font-mono text-xs uppercase tracking-wider text-signal-dim dark:text-signal">
+            {SITE.role}
+          </p>
+          <h1 class="mt-3 font-display font-bold text-4xl sm:text-5xl leading-[1.1] tracking-tight">
+            {SITE.name}
+          </h1>
+          <p class="mt-4 text-base sm:text-lg leading-relaxed text-text-light-dim dark:text-text-dark-dim max-w-xl">
+            {SITE.tagline}
+          </p>
+
+          <!-- Quick Action Buttons -->
+          <div class="mt-5 flex flex-wrap items-center gap-3">
+            <a
+              href={`mailto:${SITE.email}`}
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md font-mono text-xs font-medium bg-signal text-ink hover:opacity-90 transition-opacity"
+            >
+              <span>✉</span>
+              <span>Email</span>
+            </a>
+            {SITE.social.resume && (
+              <a
+                href={SITE.social.resume}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md font-mono text-xs border border-line-light dark:border-line-dark hover:border-signal-dim dark:hover:border-signal text-text-light dark:text-text-dark transition-colors"
+              >
+                <span>CV / Resume ↗</span>
+              </a>
+            )}
+            {SITE.social.github && (
+              <a
+                href={SITE.social.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md font-mono text-xs border border-line-light dark:border-line-dark hover:border-signal-dim dark:hover:border-signal text-text-light-dim dark:text-text-dark-dim hover:text-text-light dark:hover:text-text-dark transition-colors"
+              >
+                <span>GitHub ↗</span>
+              </a>
+            )}
+            {SITE.social.linkedin && (
+              <a
+                href={SITE.social.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md font-mono text-xs border border-line-light dark:border-line-dark hover:border-signal-dim dark:hover:border-signal text-text-light-dim dark:text-text-dark-dim hover:text-text-light dark:hover:text-text-dark transition-colors"
+              >
+                <span>LinkedIn ↗</span>
+              </a>
+            )}
+          </div>
+
+          <div class="mt-6">
+            <StatusStrip />
+          </div>
+        </div>
+
+        <div class="order-1 sm:order-2 shrink-0 self-start">
+          <!-- Terminal-window chrome around the portrait -->
+          <div class="w-28 sm:w-36 rounded-lg overflow-hidden border border-line-light dark:border-line-dark shadow-sm">
+            <div class="flex items-center gap-1.5 px-2.5 py-1.5 bg-paper-raised dark:bg-ink-raised border-b border-line-light dark:border-line-dark">
+              <span class="h-1.5 w-1.5 rounded-full bg-line-light dark:bg-line-dark"></span>
+              <span class="h-1.5 w-1.5 rounded-full bg-line-light dark:bg-line-dark"></span>
+              <span class="h-1.5 w-1.5 rounded-full bg-signal"></span>
+            </div>
+            <img
+              src={SITE.avatar}
+              alt={SITE.name}
+              width="144"
+              height="144"
+              class="w-full aspect-square object-cover bg-paper-raised dark:bg-ink-raised"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects & Open Source -->
+    <section id="projects" class="py-10 scroll-mt-8 border-t border-line-light dark:border-line-dark">
+      <div class="flex items-baseline justify-between mb-6">
+        <h2 class="font-mono text-xs uppercase tracking-wider text-text-light-dim dark:text-text-dark-dim">
+          // software projects & open source
+        </h2>
+        <span class="font-mono text-[0.7rem] text-signal-dim dark:text-signal">
+          {PROJECTS.length} featured
+        </span>
+      </div>
+      <div class="grid grid-cols-1 gap-4">
+        {PROJECTS.map((project) => <ProjectCard project={project} />)}
+      </div>
+    </section>
+
+    <!-- Work Experience & Education -->
+    <section id="work" class="py-10 scroll-mt-8 border-t border-line-light dark:border-line-dark">
+      <h2 class="font-mono text-xs uppercase tracking-wider text-text-light-dim dark:text-text-dark-dim mb-4">
+        // work experience
+      </h2>
+      <div class="space-y-1">
+        {EXPERIENCE.map((entry) => <LogEntry entry={entry} />)}
+      </div>
+
+      <h2 class="font-mono text-xs uppercase tracking-wider text-text-light-dim dark:text-text-dark-dim mt-12 mb-4">
+        // education
+      </h2>
+      <div class="space-y-1">
+        {EDUCATION.map((entry) => <LogEntry entry={entry} />)}
+      </div>
+    </section>
+
+    <!-- Technical Skills -->
+    <section id="skills" class="py-10 scroll-mt-8 border-t border-line-light dark:border-line-dark">
+      <h2 class="font-mono text-xs uppercase tracking-wider text-text-light-dim dark:text-text-dark-dim mb-6">
+        // technical skills
+      </h2>
+      <SkillsSection />
+    </section>
+
+    <!-- Certifications & Credentials -->
+    <section id="certifications" class="py-10 scroll-mt-8 border-t border-line-light dark:border-line-dark">
+      <h2 class="font-mono text-xs uppercase tracking-wider text-text-light-dim dark:text-text-dark-dim mb-6">
+        // certifications & credentials
+      </h2>
+      <CertificationsSection />
+    </section>
+
+    <!-- Featured writing -->
+    <section class="py-10 border-t border-line-light dark:border-line-dark">
+      <div class="flex items-baseline justify-between mb-4">
+        <h2 class="font-mono text-xs uppercase tracking-wider text-text-light-dim dark:text-text-dark-dim">
+          // technical writing & notes
+        </h2>
+        <a
+          href="/blog"
+          class="font-mono text-xs text-signal-dim dark:text-signal hover:underline"
+        >
+          view all ({posts.length}) →
+        </a>
+      </div>
+      <div>
+        {
+          posts.length > 0 ? (
+            posts.map((post) => (
+              <ArticleCard
+                title={post.data.title}
+                description={post.data.description}
+                pubDate={post.data.pubDate}
+                tags={post.data.tags}
+                slug={post.id}
+              />
+            ))
+          ) : (
+            <p class="py-6 text-sm text-text-light-dim dark:text-text-dark-dim">
+              Nothing published yet — add a post to src/content/blog.
+            </p>
+          )
+        }
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

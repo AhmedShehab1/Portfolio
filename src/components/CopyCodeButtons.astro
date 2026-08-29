@@ -1,0 +1,30 @@
+<script>
+  function addCopyButtons() {
+    document.querySelectorAll("pre.astro-code").forEach((pre) => {
+      if (pre.parentElement?.classList.contains("code-block-wrapper")) return;
+
+      const wrapper = document.createElement("div");
+      wrapper.className = "code-block-wrapper relative group";
+      pre.parentNode?.insertBefore(wrapper, pre);
+      wrapper.appendChild(pre);
+
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className =
+        "copy-code-button absolute top-2.5 right-2.5 font-mono text-[0.65rem] uppercase tracking-wide px-2 py-1 rounded border border-line-dark text-text-dark-dim opacity-0 group-hover:opacity-100 hover:text-signal hover:border-signal transition-all";
+      button.textContent = "copy";
+
+      button.addEventListener("click", async () => {
+        const code = pre.querySelector("code")?.textContent ?? "";
+        await navigator.clipboard.writeText(code);
+        button.textContent = "copied";
+        setTimeout(() => (button.textContent = "copy"), 1500);
+      });
+
+      wrapper.appendChild(button);
+    });
+  }
+
+  addCopyButtons();
+  document.addEventListener("astro:page-load", addCopyButtons);
+</script>

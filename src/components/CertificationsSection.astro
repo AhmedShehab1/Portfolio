@@ -1,0 +1,32 @@
+---
+import { CERTIFICATIONS } from "../data/profile";
+---
+
+<div class="space-y-3">
+  {
+    CERTIFICATIONS.map((cert) => (
+      <a
+        href={cert.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-3.5 rounded-lg border border-line-light dark:border-line-dark bg-paper dark:bg-ink hover:bg-paper-raised/50 dark:hover:bg-ink-raised/50 transition-colors"
+      >
+        <div class="flex items-center gap-3">
+          <span class="text-signal-dim dark:text-signal font-mono text-sm">✦</span>
+          <div>
+            <h4 class="font-display font-medium text-sm text-text-light dark:text-text-dark group-hover:text-signal-dim dark:group-hover:text-signal transition-colors">
+              {cert.title}
+            </h4>
+            <p class="font-mono text-xs text-text-light-dim dark:text-text-dark-dim">
+              {cert.issuer}
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center gap-1 font-mono text-xs text-signal-dim dark:text-signal shrink-0 self-end sm:self-center">
+          <span>Verify</span>
+          <span class="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+        </div>
+      </a>
+    ))
+  }
+</div>

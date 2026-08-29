@@ -1,0 +1,106 @@
+@import "tailwindcss";
+@import "@fontsource/space-grotesk/500.css";
+@import "@fontsource/space-grotesk/700.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/jetbrains-mono/400.css";
+@import "@fontsource/jetbrains-mono/500.css";
+
+/* Tailwind v4 defaults dark: to a media query — switch it to class-based
+   so our toggle button (not just OS preference) controls the mode. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+  Design tokens — "field notebook / build log" system.
+  Grounded in the site's subject: a backend/security engineer whose writing
+  covers protocols and infra, and who cares about observability (visits,
+  countries). Dark "ink" mode is the primary mode; "paper" is the alternate.
+*/
+@theme {
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-ink: #0e1116;
+  --color-ink-raised: #151a22;
+  --color-paper: #efede6;
+  --color-paper-raised: #e5e2d8;
+
+  --color-text-dark: #e7e4dc;
+  --color-text-dark-dim: #9aa0ab;
+  --color-text-light: #1b1f27;
+  --color-text-light-dim: #5b5d5f;
+
+  --color-signal: #4fd1ae;
+  --color-signal-dim: #3aa88a;
+  --color-amber: #e8a33d;
+
+  --color-line-dark: #262b36;
+  --color-line-light: #d9d4c7;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-body);
+}
+
+html.dark body {
+  background: var(--color-ink);
+  color: var(--color-text-dark);
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-text-light);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+::selection {
+  background: var(--color-signal);
+  color: var(--color-ink);
+}
+
+/* Respect reduced-motion preferences site-wide */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Visible keyboard focus, always */
+:focus-visible {
+  outline: 2px solid var(--color-signal);
+  outline-offset: 2px;
+}
+
+/* Shiki code blocks: let our theme's chrome show through, and switch
+   the syntax palette with the same .dark class that drives the rest
+   of the site (rather than the OS-level prefers-color-scheme). */
+pre.astro-code {
+  padding: 1rem 1.25rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-line-light);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  overflow-x: auto;
+}
+pre.astro-code,
+pre.astro-code span {
+  color: var(--shiki-light);
+  background-color: var(--shiki-light-bg) !important;
+}
+.dark pre.astro-code {
+  border-color: var(--color-line-dark);
+}
+.dark pre.astro-code,
+.dark pre.astro-code span {
+  color: var(--shiki-dark);
+  background-color: var(--shiki-dark-bg) !important;
+}

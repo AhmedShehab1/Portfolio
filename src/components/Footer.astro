@@ -1,0 +1,35 @@
+---
+import { SITE } from "../data/profile";
+const year = new Date().getFullYear();
+---
+
+<footer class="max-w-3xl mx-auto px-6 py-12 mt-16 border-t border-line-light dark:border-line-dark">
+  <div class="flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-text-light-dim dark:text-text-dark-dim">
+    <span>&copy; {year} {SITE.name} · Cairo, Egypt</span>
+    <div class="flex flex-wrap items-center justify-center gap-4">
+      {SITE.social.github && (
+        <a href={SITE.social.github} target="_blank" rel="noopener noreferrer" class="hover:text-signal-dim dark:hover:text-signal transition-colors">
+          github
+        </a>
+      )}
+      {SITE.social.linkedin && (
+        <a href={SITE.social.linkedin} target="_blank" rel="noopener noreferrer" class="hover:text-signal-dim dark:hover:text-signal transition-colors">
+          linkedin
+        </a>
+      )}
+      {SITE.social.leetcode && (
+        <a href={SITE.social.leetcode} target="_blank" rel="noopener noreferrer" class="hover:text-signal-dim dark:hover:text-signal transition-colors">
+          leetcode
+        </a>
+      )}
+      {SITE.social.resume && (
+        <a href={SITE.social.resume} target="_blank" rel="noopener noreferrer" class="hover:text-signal-dim dark:hover:text-signal transition-colors">
+          resume
+        </a>
+      )}
+      <a href="/rss.xml" class="hover:text-signal-dim dark:hover:text-signal transition-colors">
+        rss
+      </a>
+    </div>
+  </div>
+</footer>
