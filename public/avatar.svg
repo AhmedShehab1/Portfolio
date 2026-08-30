@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 144">
-  <rect width="144" height="144" fill="#151a22"/>
-  <circle cx="72" cy="58" r="26" fill="#262b36"/>
-  <path d="M28 128c6-30 32-42 44-42s38 12 44 42" fill="#262b36"/>
-  <text x="72" y="140" text-anchor="middle" font-family="monospace" font-size="9" fill="#4fd1ae">replace me</text>
-</svg>
